@@ -28,10 +28,10 @@ def main(command):
             console << "Started in CLI mode!"
         case "start":
             Store.start_game()
-            while True:
-                time.sleep(.5)
         case _:
             print("Usage: main.py [OPTIONS] COMMAND\nTry 'main.py --help' for help.")
+
+    Store.clear()
 
 
 if __name__ == '__main__':

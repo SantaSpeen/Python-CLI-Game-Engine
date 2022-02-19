@@ -2,7 +2,7 @@
 
 # Written by: SantaSpeen
 # (c) SantaSpeen 2022
-
+import os
 from threading import Thread
 
 from .Console import Console
@@ -30,5 +30,5 @@ def init_core():
 
     s.start_console = start_console
     s.terminal_size = tools.get_terminal_size
-
+    s.clear = lambda: os.system("clear")
     return s

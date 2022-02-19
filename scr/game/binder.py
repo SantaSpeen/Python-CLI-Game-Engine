@@ -16,6 +16,8 @@ def on_press(key):
             Store.last_key = 3
         case Key.esc:
             Store.last_key = 4
+        case Key.enter:
+            Store.last_key = 5
 
 
 def get_listener() -> keyboard.Listener:

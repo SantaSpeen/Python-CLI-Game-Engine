@@ -6,19 +6,27 @@
 import builtins
 import os
 import threading
+import time
+import colorama
 
 
 # noinspection PyShadowingBuiltins
 class Store:
 
-    debug = False
+    debug = True
     threads = {}
 
     def __init__(self):
-        pid = os.getpid()
-        self.threads.update({"main": {"object": threading.main_thread(), "pid": pid}})
+        colorama.init()
+        self.pid = os.getpid()
+        self.start_time = time.time()
+        self.threads.update({"main": {"object": threading.main_thread(), "pid": self.pid}})
         self.items = dict()
-        self.items.update({"pid": pid})
+        self.items.update({"pid": self.pid})
+
+        self.colors_reset = colorama.Style.RESET_ALL
+        self.font_white = colorama.Fore.WHITE
+        self.back_black = colorama.Back.BLACK
 
     def builtins_hook(self):
         builtins.Store = self
