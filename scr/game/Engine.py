@@ -136,7 +136,6 @@ class Engine:
                 view = self.with_phrase_creator(self, phase="A little error...")
 
         self.frame_last_counter += 1
-
         return self.frame_create(view)
 
     def frame_print(self):
