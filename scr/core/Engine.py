@@ -83,12 +83,12 @@ class Engine:
         x, y = self.get_fixed_terminal_size()
         return (
                 "\ngame_fps  : %-10s FPS        : %-10s\n"
-                "Width     : %-10s Height     : %-10s \n"
+                "Width     : %-10s Height     : %-10s Valid: %-10s Width lock: %-10s Height lock: %-10s \n"
                 "Frames all: %-10s Frames last: %-10s\n"
                 "View      : %-10s View last  : %-10s Valid: %-s\n"
-                "Time all  : %-28s Time last: %-s" %
+                "Time all  : %-30s Time last: %-s" %
                 (Store.game_fps, self.frame_last_counter / self.work_time(self.frame_last_start_time, float),
-                 x, y,
+                 x, y, (x, y) == (self.x_max, self.y_max), self.x_max, self.y_max,
                  self.frame_all_counter, self.frame_last_counter,
                  Store.game_status, self.frame_last_game_status,  Store.game_status == self.frame_last_game_status,
                  self.frame_all_start_time, self.frame_last_start_time)

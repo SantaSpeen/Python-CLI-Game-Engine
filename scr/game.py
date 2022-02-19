@@ -43,16 +43,17 @@ def start_game():
     Store.clear()
     while True:
 
+        time.sleep(Store.game_fps)
+
         match Store.last_key:
             case 4: Store.game_status = "pause"
             case 5: Store.game_status = "game"
 
-        time.sleep(Store.game_fps)
         engine.frame_print()
 
 
 def init_game():
-    Store.game_fps_play = .03955  # 20.295007664166093
-    Store.game_fps_pause = .3955  # 2.5
+    Store.game_fps_play = .04215  # 22.0
+    Store.game_fps_pause = .3955  # 2.6
     Store.game_status = "game"
     Store.start_game = start_game
