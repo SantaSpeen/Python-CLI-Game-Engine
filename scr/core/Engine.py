@@ -45,7 +45,7 @@ class Engine:
         self.frame_last_game_status = Store.game_status
 
     @staticmethod
-    def sharp_creator(cls, *ignore, **ignore1):
+    def sharp_creator(cls, *ignore, **ignoretoo):
         frame = ""
         for _ in range(0, cls.y_max):
             frame += "#" * cls.x_max
@@ -70,27 +70,27 @@ class Engine:
         half_x = self.x_max / 2
         phrase_center = half_x - half_string
         null_text = " " * int(phrase_center)
-        phrase = null_text + string + null_text
+        phrase = null_text + string
         return phrase
 
     def frame_topbar(self):
-        return self.get_center("Score: %5s;" % Store.game_score)
+        return self.get_center("Score: %6s;\n" % Store.game_score)
 
     def frame_footer(self):
-        return self.get_center("Playing time: %9s sec" % self.work_time(self.frame_all_start_time))
+        return self.get_center("Playing time: %10s sec" % self.work_time(self.frame_all_start_time))
 
     def frame_footer_debug(self):
         x, y = self.get_fixed_terminal_size()
         return (
-                "FPS: %s\n"
-                "Width: %s; Height: %s; \n"
-                "Frames all: %-10s Frames last: %-s\n"
-                "View      : %-10s game_fps   : %-s\n"
-                "Time all  : %-10s Time last  : %-s" %
-                (self.frame_all_counter / self.work_time(self.frame_last_start_time, float),
+                "\ngame_fps  : %-10s FPS        : %-10s\n"
+                "Width     : %-10s Height     : %-10s \n"
+                "Frames all: %-10s Frames last: %-10s\n"
+                "View      : %-10s View last  : %-10s Valid: %-s\n"
+                "Time all  : %-28s Time last: %-s" %
+                (Store.game_fps, self.frame_last_counter / self.work_time(self.frame_last_start_time, float),
                  x, y,
                  self.frame_all_counter, self.frame_last_counter,
-                 Store.game_status, Store.game_fps,
+                 Store.game_status, self.frame_last_game_status,  Store.game_status == self.frame_last_game_status,
                  self.frame_all_start_time, self.frame_last_start_time)
         )
 
@@ -112,12 +112,12 @@ class Engine:
         if self.get_fixed_terminal_size() != (self.x_max, self.y_max):
             Store.game_status = "error-terminal"
 
-        if Store.game_status == self.frame_last_game_status:
+        if Store.game_status != self.frame_last_game_status:
             self.new_frame()
 
         match Store.game_status:
             case "game":
-                Store.game_fps = .09
+                Store.game_fps = Store.game_fps_play
                 view = self.frame_view_creator(self)
                 # view = self.with_phrase_creator(self, phase=f"{self.frame_last_counter} {self.frame_last_game_status}")
             case "pause":
@@ -139,5 +139,5 @@ class Engine:
         return self.frame_create(view)
 
     def frame_print(self):
-        print("\r" + self.frame(), end="")
+        print("\n\r" + self.frame(), end="")
         self.frame_all_counter += 1
