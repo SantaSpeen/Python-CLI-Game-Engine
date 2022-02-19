@@ -7,16 +7,17 @@ def on_press(key):
 
     match key:
         case Key.up:
-            print("\r   Up", end='')
+            Store.last_key = 0
         case Key.down:
-            print("\r Down", end='')
+            Store.last_key = 1
         case Key.left:
-            print("\r Left", end='')
+            Store.last_key = 2
         case Key.right:
-            print("\rRight", end='')
+            Store.last_key = 3
         case Key.esc:
-            return False
+            Store.last_key = 4
 
 
 def get_listener() -> keyboard.Listener:
+    Store.last_key = None
     return keyboard.Listener(on_press=on_press)

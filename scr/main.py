@@ -24,6 +24,7 @@ def main(command):
 
         case "cli":
             Store.start_console()
+            # noinspection PyStatementEffect
             console << "Started in CLI mode!"
         case "start":
             Store.start_game()

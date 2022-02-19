@@ -7,6 +7,7 @@ from threading import Thread
 
 from .Console import Console
 from .Store import Store
+from . import tools
 
 c: Console = None
 s: Store = None
@@ -26,6 +27,8 @@ def init_core():
     c = Console(prompt_out="<:")
     s = Store().builtins_hook()
     s.builtins_hook()
+
     s.start_console = start_console
+    s.terminal_size = tools.get_terminal_size
 
     return s
