@@ -1,12 +1,25 @@
 # -*- coding: utf-8 -*-
 
+# Developed by Ahegao Devs
 # Written by: SantaSpeen
-# (c) SantaSpeen 2022
+# Licence: MIT
+# (c) ahegao.ovh 2022
 
 from _typeshed import SupportsWrite
 from builtins import function
-import logging
 from typing import AnyStr
+
+
+class ConsoleIO:
+
+    @staticmethod
+    def write(s: AnyStr): ...
+
+    @staticmethod
+    def write_err(s: AnyStr): ...
+
+    @staticmethod
+    def read(): ...
 
 
 class Console(object):
@@ -18,14 +31,16 @@ class Console(object):
                  file: SupportsWrite[str] or None = Console,
                  debug: bool = False) -> None:
 
-        self.__log: logging = None
-        self.__prompt_out: str = None
+        self.get_IO: ConsoleIO = ConsoleIO
+        self.is_run: bool = False
 
     def __getitem__(self, item): ...
     @property
     def alias(self) -> dict: ...
-    def add(self, key: str, func: function) -> dict: ...
+    def add(self, key: str, func, argv: bool = False, man: str = "No have manual message") -> dict:...
     def log(self, s: AnyStr, r='\r') -> None: ...
+    def __lshift__(self, s: AnyStr) -> None:
+        self.write(s)
     def write(self, s: AnyStr, r='\r') -> None: ...
     def logger_hook(self) -> None: ...
     def builtins_hook(self) -> None: ...
