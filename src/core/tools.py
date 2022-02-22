@@ -1,3 +1,11 @@
+# import shutil
+#
+#
+# def get_terminal_size():
+#     cr = shutil.get_terminal_size()
+#
+#     return int(cr[1]), int(cr[0])
+
 def get_terminal_size():
     import os
     env = os.environ
@@ -5,8 +13,7 @@ def get_terminal_size():
     def ioctl_GWINSZ(fd):
         try:
             import fcntl, termios, struct, os
-            cr = struct.unpack('hh', fcntl.ioctl(fd, termios.TIOCGWINSZ,
-                                                 '1234'))
+            cr = struct.unpack('hh', fcntl.ioctl(fd, termios.TIOCGWINSZ, '1234'))
         except:
             return
         return cr

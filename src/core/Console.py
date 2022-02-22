@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # Developed by Ahegao Devs
+# Version: 0.8
 # Written by: SantaSpeen
 # (c) ahegao.ovh 2022
 

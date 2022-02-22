@@ -37,7 +37,10 @@ class Engine:
 
     @staticmethod
     def work_time(from_w, _cls: Type[int] or Type[float] = int) -> int or float:
-        return _cls(time.time() - from_w)
+        w = _cls(time.time() - from_w)
+        if w == 0:
+            w = 1
+        return w
 
     def new_frame(self):
         self.frame_last_counter = 0
@@ -109,6 +112,7 @@ class Engine:
 
         if Store.game_status.startswith("error"):
             Store.game_status = "game"
+
         if self.get_fixed_terminal_size() != (self.x_max, self.y_max):
             Store.game_status = "error-terminal"
 

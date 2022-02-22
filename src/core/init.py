@@ -3,6 +3,7 @@
 # Written by: SantaSpeen
 # (c) SantaSpeen 2022
 import os
+import sys
 from threading import Thread
 
 from .Console import Console
@@ -23,6 +24,10 @@ def start_console():
 
 
 def init_core():
+    if os.name == 'nt':
+        sys.stderr.write("\nWindows OS is not available\n\n")
+        exit(1)
+
     global c, s
     c = Console(prompt_out="<:")
     s = Store().builtins_hook()
@@ -30,5 +35,5 @@ def init_core():
 
     s.start_console = start_console
     s.terminal_size = tools.get_terminal_size
-    s.clear = lambda: os.system("clear")
+    s.clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
     return s

@@ -30,7 +30,7 @@ $ python3.10 -m pip install -U pip
     # * Update pip... *
 $ git clone https://github.com/SantaSpeen/CLI-Snake-on-Python.git
     # * Dowloading... *
-$ cd CLI-Snake-on-Python/scr/
+$ cd CLI-Snake-on-Python/src/
     # Change dir
 $ python3.10 -m pip install -r requirements.txt
     # * Installing requirements... *
@@ -49,7 +49,7 @@ $ python3.10 -m pip install -U pip
     # * Update pip... *
 $ git clone https://github.com/SantaSpeen/CLI-Snake-on-Python.git
     # * Dowloading... *
-$ cd CLI-Snake-on-Python/scr/
+$ cd CLI-Snake-on-Python/src/
     # Change dir
 $ python3.10 -m pip install -r requirements.txt
     # * Installing requirements... *
