@@ -6,6 +6,7 @@ import time
 
 from SnakeEngine import SnakeEngine
 from pynput import keyboard
+from core import EngineFPSLock
 
 
 def on_press(key):
@@ -39,17 +40,8 @@ def start_game():
     Store.game_fps = Store.game_fps_play
     print("Game started!")
     width, height = Store.terminal_size()
-    engine = SnakeEngine(width, height)  # x_max, y_max
     Store.clear()
-    while True:
-
-        time.sleep(Store.game_fps)
-
-        match Store.last_key:
-            case 4: Store.game_status = "pause"
-            case 5: Store.game_status = "game"
-
-        engine.frame_print()
+    SnakeEngine(width, height).run(EngineFPSLock.NOLOCK)  # x_max, y_max
 
 
 def init_game():
