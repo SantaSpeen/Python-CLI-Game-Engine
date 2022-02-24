@@ -6,7 +6,6 @@ import time
 
 from SnakeEngine import SnakeEngine
 from pynput import keyboard
-from core import EngineFPSLock
 
 
 def on_press(key):
@@ -26,6 +25,8 @@ def on_press(key):
             Store.last_key = 4
         case Key.enter:
             Store.last_key = 5
+        case _:
+            Store.last_key = -1
 
 
 def get_listener() -> keyboard.Listener:
@@ -37,15 +38,13 @@ def start_game():
     listener = get_listener()
     listener.start()
     Store.clear()
-    Store.game_fps = Store.game_fps_play
     print("Game started!")
     width, height = Store.terminal_size()
     Store.clear()
-    SnakeEngine(width, height).run(EngineFPSLock.NOLOCK)  # x_max, y_max
+    SnakeEngine(width, height).run()  # x_max, y_max
 
 
 def init_game():
-    Store.game_fps_play = .04215  # 22.0
-    Store.game_fps_pause = .3955  # 2.6
+    # Store.game_fps_pause = .3955  # 2.6
     Store.game_status = "game"
     Store.start_game = start_game

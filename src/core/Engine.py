@@ -71,6 +71,9 @@ class Engine:
 
         self.game_score = 0
 
+        self.fps_lock = EngineFPSLock.NOLOCK
+        self.fps_lock_pause = .3955
+
         print(Store.colors_reset + Store.font_white + Store.back_black)
 
     def new_frame(self) -> None:
@@ -139,11 +142,11 @@ class Engine:
                 view = self.frame_view_creator(self)
                 # view = self.with_phrase_creator(self, phase=f"{self.frame_last_counter} {self.frame_last_game_status}")
             case "pause":
-                self.frame_delay = Store.game_fps_pause
+                self.frame_delay = self.fps_lock_pause
                 view = self.frame_view_pause(self, phase="paused. Press Enter to continue. CTRL + c to exit.")
             case "error-terminal":
-                self.frame_delay = Store.game_fps_pause
-                Store.clear()
+                self.frame_delay = self.fps_lock_pause
+                # Store.clear()
                 x, y = self.get_fixed_terminal_size()
                 view = with_phrase_creator(
                     self,
@@ -160,9 +163,17 @@ class Engine:
         sys.stdout.write("\n\r" + self.frame())
         self.frame_all_counter += 1
 
-    def run(self, fps_lock: EngineFPSLock = EngineFPSLock.FPS_20) -> None:
+    def run(self, fps_lock: EngineFPSLock | None = None) -> None:
+        """
+                def run(self, fps_lock: EngineFPSLock = None) -> None:
+        :param fps_lock: A ver from enum EngineFPSLock; If none used self.fps_lock. By default, self.fps_lock = EngineFPSLock.NOLOCK
+        :return: None
+        """
+        
+        if fps_lock is not None:
+            self.fps_lock = fps_lock
 
-        match fps_lock:
+        match self.fps_lock:
             case EngineFPSLock.NOLOCK:
                 self.play_delay = 0
             case EngineFPSLock.FPS_05:
@@ -177,8 +188,6 @@ class Engine:
                 self.play_delay = .033
             case EngineFPSLock.FPS_30:
                 self.play_delay = .0267
-            case _:
-                raise
 
         self.frame_delay = self.play_delay
 
