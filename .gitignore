@@ -130,3 +130,7 @@ dmypy.json
 
 # Del .idea
 .idea/
+
+# ignore Sonar
+codecov
+.scannerwork/
