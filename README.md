@@ -2,74 +2,35 @@
 <p align="center">
     <img src="https://img.shields.io/github/license/SantaSpeen/Python-CLI-Game-Engine?style=for-the-badge" alt="license" title="license: MIT">
     <img src="https://img.shields.io/github/issues/SantaSpeen/Python-CLI-Game-Engine?style=for-the-badge" alt="issues">
-    <img src="./assets/magic_logo.svg" alt="magic">
+    <img src="./assets/magic_logo.svg" alt="magic" loading="lazy">
     <br/>
-    <img src="./assets/preview.png" alt="preview">
+    <img src="./assets/preview.png" alt="preview" loading="lazy">
 </p>
 
-## О проекте
+## Localizations
 
-* #### Я решил отвлечься от основной работы и отдохнуть, ~~мой отдых будет заключаться в создании змейки~~)
+* English: No English translations for now
+* Russian: [here](./README_RU.md)
 
-* ### Пока что проект не готов
+## About
 
+No English translations for now
 
-* Из змейки получилось ядро...
-* В общем, теперь это `Python CLI Game Engine`
-* И в качетве примера будет как раз змейка.
+# Require
 
-## На чём запускаю
+* UNIX systems: MacOS, Linux and etc
+* Python3.10 or newer
+* Python libraries: `pynput`, `click`
 
-1. Python3.10
-2. Библиотеки: `pynput`, `click`
+## How to start
 
-## Как запустить:
+No English translations for now
 
-* Писал на Python3.10, работу на версиях ниже не гарантирую
+## Links
 
-* #### Debian based:
-```shell
-# Shell:
+* Author's Telegram: https://t.me/SantaSpeen
 
-$ sudo apt install git
-    # * Installing git VSC... *
-$ python3.10 -m pip install -U pip
-    # * Update pip... *
-$ git clone https://github.com/SantaSpeen/CLI-Snake-on-Python.git
-    # * Dowloading... *
-$ cd CLI-Snake-on-Python/src/
-    # Change dir
-$ python3.10 -m pip install -r requirements.txt
-    # * Installing requirements... *
-$ python3.10 main.py start
-    # * Play now! *
-```
-
-* #### MacOS:
-
-```shell
-# Shell:
-
-$ brew install git
-    # * Installing git VSC... *
-$ python3.10 -m pip install -U pip
-    # * Update pip... *
-$ git clone https://github.com/SantaSpeen/CLI-Snake-on-Python.git
-    # * Dowloading... *
-$ cd CLI-Snake-on-Python/src/
-    # Change dir
-$ python3.10 -m pip install -r requirements.txt
-    # * Installing requirements... *
-$ python3.10 main.py start
-    # * Нужно разрешить считывание клавиш отовсюду в настройках! *
-    # * Разрешаем и запускаем вновь * 
-```
-
-## Ссылки
-
-* [Мой Telegram](https://t.me/SantaSpeen "SantaSpeen"): https://t.me/SantaSpeen
-
-Используемые библиотеки: 
+Used libs: 
 
 * [pynput](https://github.com/moses-palmer/pynput "pynput")
 * [click](https://click.palletsprojects.com/ "click")
