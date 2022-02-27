@@ -1,4 +1,4 @@
-# CLI Snake on Python
+# Python CLI Game Engine
 <p align="center">
     <img src="https://img.shields.io/github/license/SantaSpeen/Python-CLI-Game-Engine?style=for-the-badge" alt="license" title="license: MIT">
     <img src="https://img.shields.io/github/issues/SantaSpeen/Python-CLI-Game-Engine?style=for-the-badge" alt="issues">
