@@ -9,22 +9,28 @@
 
 ## Localizations
 
-* English: No English translations for now
+* English: You are here.
 * Russian: [here](./README_RU.md)
 
 ## About
 
-No English translations for now
+No translations
+
+#### TODO:
+
+- [x] Core (Base)
+- [ ] Get pixels around 
+- [ ] Auto calibration FPS system
 
 # Require
 
-* UNIX systems: MacOS, Linux and etc
+* UNIX systems: MacOS, Linux and etc :trollface:
 * Python3.10 or newer
 * Python libraries: `pynput`, `click`
 
 ## How to start
 
-No English translations for now
+No translations
 
 ## Links
 
