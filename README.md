@@ -16,11 +16,12 @@
 
 No translations
 
-#### TODO:
+## TODO:
 
 - [x] Core (Base)
 - [ ] Get pixels around 
 - [ ] Auto calibration FPS system
+- [ ] Snake Game
 
 # Require
 
