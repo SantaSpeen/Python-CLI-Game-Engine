@@ -1,8 +1,15 @@
 # CLI Snake on Python
+<p align="center">
+    <img src="https://img.shields.io/github/license/SantaSpeen/Python-CLI-Game-Engine?style=for-the-badge" alt="license" title="license: MIT">
+    <img src="https://img.shields.io/github/issues/SantaSpeen/Python-CLI-Game-Engine?style=for-the-badge" alt="issues">
+    <img src="./assets/magic_logo.svg" alt="magic">
+    <br/>
+    <img src="./assets/preview.png" alt="preview">
+</p>
 
 ## О проекте
 
-* #### Я решил отвлечься от основной работы и отдохнуть, мой отдых будет заключаться в создании змейки)
+* #### Я решил отвлечься от основной работы и отдохнуть, ~~мой отдых будет заключаться в создании змейки~~)
 
 * ### Пока что проект не готов
 

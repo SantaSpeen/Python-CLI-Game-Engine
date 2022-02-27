@@ -14,7 +14,7 @@ class SnakeEngine(Engine):
 
         self.frame_view_creator = self.snake_logic
 
-        self.fps_lock = EngineFPSLock.NOLOCK
+        self.fps_lock = EngineFPSLock.FPS_20
 
     def snake_logic(self, cls, *ignore, **ignoretoo):
 
